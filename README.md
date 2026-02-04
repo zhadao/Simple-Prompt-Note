@@ -141,7 +141,7 @@ MIT License
 
 - GitHub: [zhadao](https://github.com/zhadao)
 - 邮箱: <zhadaosizi@qq.com>
-- Bilibili: [扎导ZHA]([https://space.bilibili.com/3546738841417351](https://space.bilibili.com/491873894?spm_id_from=333.1387.0.0))
+- Bilibili: [扎导ZHA](https://space.bilibili.com/491873894?spm_id_from=333.1387.0.0)
 - 项目地址: [Simple-Prompt-Note](https://github.com/zhadao/Simple-Prompt-Note)
 
 ---
