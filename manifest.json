@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "SimplePrompt - 提示词备忘录",
+  "version": "1.0.0",
+  "description": "极简、本地化的 AI 提示词管理工具，支持 DeepSeek 翻译润色",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://api.deepseek.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_width": 800,
+    "default_height": 600
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.html", "assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
