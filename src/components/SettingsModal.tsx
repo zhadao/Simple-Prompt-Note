@@ -21,6 +21,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   const [activeTab, setActiveTab] = useState<'api' | 'appearance' | 'data'>('api');
   const [importError, setImportError] = useState<string | null>(null);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [showCustomModelInput, setShowCustomModelInput] = useState(false);
 
   useEffect(() => {
     setLocalSettings(settings);
@@ -148,15 +149,30 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   模型
                 </label>
                 <select
-                  value={localSettings.model}
-                  onChange={(e) =>
-                    setLocalSettings({ ...localSettings, model: e.target.value })
-                  }
+                  value={localSettings.model === 'custom' ? 'custom' : localSettings.model}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (value === 'custom') {
+                      setShowCustomModelInput(true);
+                    } else {
+                      setShowCustomModelInput(false);
+                      setLocalSettings({ ...localSettings, model: value });
+                    }
+                  }}
                   className="w-full px-3 py-2 text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-gray-100"
                 >
                   <option value="deepseek-chat">deepseek-chat</option>
                   <option value="deepseek-coder">deepseek-coder</option>
+                  <option value="custom">自定义</option>
                 </select>
+                {showCustomModelInput && (
+                  <input
+                    type="text"
+                    placeholder="请输入自定义模型名称"
+                    onChange={(e) => setLocalSettings({ ...localSettings, model: e.target.value })}
+                    className="mt-2 w-full px-3 py-2 text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-gray-100"
+                  />
+                )}
               </div>
 
               <div>

@@ -56,7 +56,12 @@
 6. 点击 "加载已解压的扩展程序"
 7. 选择 `dist` 目录
 
-### 方法二：直接加载
+### 方法二：从GitHub Releases下载（推荐）
+1. 直接在 [GitHub Releases](https://github.com/zhadao/Simple-Prompt-Note/releases/tag/v1.0.0) 下载 `SimplePrompt-v1.0.0.zip` 文件
+2. 解压到一个文件夹
+3. 按照上述步骤 4-7 加载
+
+### 方法三：直接加载
 1. 下载发布的 `dist` 文件夹
 2. 按照上述步骤 4-7 加载
 

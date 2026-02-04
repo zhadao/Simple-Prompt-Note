@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = 'simpleprompt_data';
 const LIBRARY_VERSION_KEY = 'simpleprompt_library_version';
-const CURRENT_LIBRARY_VERSION = 3; // 每次更新默认词典时递增
+const CURRENT_LIBRARY_VERSION = 4; // 每次更新默认词典时递增
 
 export interface Settings {
   apiKey: string;
@@ -120,6 +120,8 @@ export async function getData(): Promise<AppData> {
       if (needsLibraryUpdate) {
         console.log(`Updating library from version ${savedVersion} to ${CURRENT_LIBRARY_VERSION}`);
         data.library = mergeDefaultLibrary(data.library, defaultLibrary);
+        // 合并新的默认设置，保留用户自定义的其他设置
+        data.settings = { ...defaultSettings, ...data.settings };
         await chrome.storage.local.set({
           [STORAGE_KEY]: data,
           [LIBRARY_VERSION_KEY]: CURRENT_LIBRARY_VERSION
