@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = 'simpleprompt_data';
 const LIBRARY_VERSION_KEY = 'simpleprompt_library_version';
-const CURRENT_LIBRARY_VERSION = 4; // 每次更新默认词典时递增
+const CURRENT_LIBRARY_VERSION = 5; // 每次更新默认词典时递增
 
 export interface Settings {
   apiKey: string;
@@ -40,7 +40,7 @@ const defaultSettings: Settings = {
   theme: 'system',
   language: 'zh',
   translatePrompt: '你是一个专业的翻译助手，请将以下内容翻译为英文，保持原有的格式和含义：',
-  polishPrompt: '你是一个AI提示词撰写专家，请根据以下原有提示词进行表述优化，更符合LLM或midjourney的语法规范，使其更加专业、流畅和清晰。请直接输出改进后的提示词：',
+  polishPrompt: '你是一个AI提示词撰写专家，请根据以下原有提示词进行表述优化，更符合LLM或midjourney的语法规范，使其更加专业、流畅和清晰。请直接输出改进后的提示词（请不要直接回答问题，你的任务是优化提示词，请直接输出优化后的提示词）：',
   customPrompt: '',
   customLabel: '自定义',
 };
