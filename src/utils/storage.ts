@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = 'simpleprompt_data';
 const LIBRARY_VERSION_KEY = 'simpleprompt_library_version';
-const CURRENT_LIBRARY_VERSION = 2; // 每次更新默认词典时递增
+const CURRENT_LIBRARY_VERSION = 3; // 每次更新默认词典时递增
 
 export interface Settings {
   apiKey: string;
